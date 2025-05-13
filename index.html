@@ -4,6 +4,116 @@
     <meta charset="UTF-8">
     <title>Mon Portfolio</title>
     <link rel="stylesheet" href="./PORTFOLIOSTYLE.css">
+    <style>
+        :root {
+            --noir: #000000;
+            --gris-fonce: #333333;
+            --gris-moyen: #777777;
+            --gris-clair: #cccccc;
+            --blanc: #ffffff;
+            --bleu: #0000ff;}
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .menu-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        .menu-bar .dropdown > a {
+            color: white;
+            padding: 14px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .menu-bar .dropdown > a:hover {
+            background-color: #444;
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+        .skill-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 8px 0;
+        }
+
+        .bar {
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            flex-grow: 1;
+            margin-left: 10px;
+            position: relative;
+        }
+
+        .bar::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            left: 0;
+            top: 0;
+        }
+
+        .level-10::after { width: 100%; }
+        .level-9::after { width: 90%; }
+        .level-8::after { width: 80%; }
+        .level-7::after { width: 70%; }
+        .level-6::after { width: 60%; }
+        .level-5::after { width: 50%; }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".menu-bar .dropdown-content a").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const id = this.getAttribute("href").substring(1);
+                    document.querySelectorAll("main section").forEach(section => {
+                        section.classList.add("hidden-section");
+                    });
+                    const sectionToShow = document.getElementById(id);
+                    if (sectionToShow) sectionToShow.classList.remove("hidden-section");
+                    sectionToShow.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -13,119 +123,74 @@
         <div class="texte-presentation">
             <h1>Bonjour, je suis Ahmed</h1>
             <p>Étudiant en 1ère année de BUT Informatique
-                Passionné par l'informatique depuis mon plus jeune âge, j'ai naturellement choisi de poursuivre mes études en BUT Informatique. Cette formation me permet de combiner ma passion pour la technologie avec mon affinité pour les mathématiques,
-                 deux domaines qui se complètent parfaitement dans le développement informatique et la résolution de problèmes complexes.
-                Mon parcours est marqué par une soif d'apprentissage constante. Je m'efforce continuellement de relever de nouveaux défis techniques 
-                et d'approfondir mes connaissances, particulièrement dans les domaines de la programmation et des mathématiques appliquées. Cette curiosité m'a conduit à explorer divers aspects de l'informatique, de l'algorithmique à la cybersécurité.
-                En parallèle de mes études, je donne des cours particuliers en informatique et en mathématiques. Cette expérience de tutorat s'est révélée enrichissante à double titre : elle m'a permis de développer mes compétences pédagogiques tout en 
-                renforçant ma propre compréhension des concepts fondamentaux. La satisfaction de voir mes élèves progresser et surmonter leurs difficultés est une source de motivation supplémentaire dans mon parcours.
             </p>
         </div>
     </div>
 </header>
 
+<nav class="menu-bar">
+    <div class="dropdown">
+        <a>Qui suis-je ?</a>
+        <div class="dropdown-content">
+            <a href="#parcours">Mon parcours</a>
+            <a href="#passions">Mes passions</a>
+            <a href="#activites">Mes activités</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a>Compétences</a>
+        <div class="dropdown-content">
+            <a href="#softskills">Compétences sociales</a>
+            <a href="#hardskills">Compétences pratiques</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a>Projets</a>
+        <div class="dropdown-content">
+            <a href="#projets">Projets scolaires</a>
+            <a href="#projets">Projets personnels</a>
+        </div>
+    </div>
+</nav>
+
 <main>
-    <section class="competences">
-        <div class="tabs">
-            <button class="tablink active" onclick="openTab(event, 'softskills')">Soft Skills</button>
-            <button class="tablink" onclick="openTab(event, 'hardskills')">Hard Skills</button>
-            <button class="tablink" onclick="openTab(event, 'projets')">Projets</button>
-        </div>
+    <section id="softskills" class="hidden-section">
+        <h2>Compétences sociales</h2>
+        <div class="skill-bar">Travail en équipe<div class="bar level-9"></div></div>
+        <div class="skill-bar">Communication<div class="bar level-8"></div></div>
+        <div class="skill-bar">Esprit critique<div class="bar level-7"></div></div>
+    </section>
 
-        <div id="softskills" class="tabcontent" style="display:block;">
-            <ul>
-                <li>Travail en équipe</li>
-                <li>Communication</li>
-                <li>Esprit critique</li>
-            </ul>
-        </div>
+    <section id="hardskills" class="hidden-section">
+        <h2>Compétences pratiques</h2>
+        <div class="skill-bar">C++, Python, HTML/CSS<div class="bar level-9"></div></div>
+        <div class="skill-bar">SQL, Git, Linux<div class="bar level-8"></div></div>
+        <div class="skill-bar">Cybersécurité, Réseaux<div class="bar level-7"></div></div>
+    </section>
 
-        <div id="hardskills" class="tabcontent">
-            <ul>
-                <li>C++, Python, HTML/CSS</li>
-                <li>SQL, Git, Linux</li>
-                <li>Cybersécurité, Réseaux</li>
-            </ul>
-        </div>
-
-        <div id="projets" class="tabcontent">
-            <div class="projets-grid">
-                <div class="projet" onclick="openModal('modal1')">
-                    <img src="jeu.JPG" alt="Jeu 2D SDL">
-                    <p>Jeu 2D SDL</p>
-                </div>
-                <div class="projet" onclick="openModal('modal2')">
-                    <img src="site.JPG" alt="Site Web">
-                    <p>Site Web Fictif</p>
-                </div>
-                <div class="projet" onclick="openModal('modal3')">
-                    <img src="MCD.JPG" alt="Base de données">
-                    <p>Création d'une base de données</p>
-                </div>
-                <div class="projet" onclick="openModal('modal4')">
-                    <img src="diagrammepieuvre.JPG" alt="Recueil">
-                    <p>Recueil de besoins</p>
-                </div>
+    <section id="projets" class="hidden-section">
+        <h2>Projets</h2>
+        <div class="projets-grid">
+            <div class="projet">
+                <img src="jeu.JPG" alt="Jeu 2D SDL">
+                <p>Jeu 2D SDL</p>
+            </div>
+            <div class="projet">
+                <img src="site.JPG" alt="Site Web">
+                <p>Site Web Fictif</p>
+            </div>
+            <div class="projet">
+                <img src="MCD.JPG" alt="Base de données">
+                <p>Création d'une base de données</p>
+            </div>
+            <div class="projet">
+                <img src="diagrammepieuvre.JPG" alt="Recueil">
+                <p>Recueil de besoins</p>
             </div>
         </div>
     </section>
 
-    <!-- Modals pour projets -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <h3>Jeu 2D SDL</h3>
-            <img src="jeu.JPG" alt="Jeu 2D SDL">
-            <p><strong>Durée :</strong> 3 mois</p>
-            <p><strong>Description :</strong> 
-            Jeu vidéo codé en C++ à l'aide d'une bibliothèque SDL.
-            L'objectif est de récupérer toutes les pièces pour gagner sans se faire toucher par les ennemis
-            Possibilité de changer de personnages et les ennemis, se déplacer, récuperer un bonus qui fait disparaitre les ennemis.
-            Actuellement sur la création d'un second niveau.
-            </p>
-            <p><strong>Compétences :</strong> C++, algorithmique, structures de données.</p>
-            <a href="JeuSDL.zip" download>Le jeu complet</a>
-        </div>
-    </div>
-
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <h3>Site Web fictif</h3>
-            <img src="site.JPG" alt="Site Web">
-            <p><strong>Durée :</strong> 2 mois</p>
-            <p><strong>Description :</strong> Site vitrine HTML/CSS pour une activité imaginaire.</p>
-            <p><strong>Compétences :</strong> HTML, CSS.</p>
-        </div>
-    </div>
-
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal3')">&times;</span>
-            <h3>Création d'une base de données</h3>
-            <img src="MCD.JPG" alt="Base de données">
-            <p><strong>Durée :</strong> 3 mois</p>
-            <p><strong>Description :</strong> Création d'une base de données à partir d'informations recueillies auprès d'une entreprise.</p>
-            <p><strong>Compétences :</strong> SQL,SQLITE,MCD,SR.</p>
-            <a href="Trainline.zip" download>Base de données complète</a> <!--PROJET NON FONCTIONNEL-->
-        </div>
-    </div>
-
-    <div id="modal4" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal4')">&times;</span>
-            <h3>Recueil de besoins</h3>
-            <img src="diagrammepieuvre.JPG" alt="Recueil">
-            <p><strong>Durée :</strong> 2 mois</p>
-            <p><strong>Description :</strong> Réalisation d'un cahier des charges d'une entreprise fictive nommée Le Caribou
-                avec diagramme pieuvre, organigramme technique produit.</p>
-            <p><strong>Compétences :</strong> Analyse des besoins,Modélisation,Spécifications fonctionnelles, Bilan</p>
-            <a href="CAHIER_DES_CHARGES.pdf" download>Le cahier des charges</a>
-        </div>
-    </div>
-
-    <!-- Passions -->
-    <section class="passions">
+    <section id="passions" class="hidden-section">
         <h2>Mes passions</h2>
         <div class="passions-grid">
             <div class="passion">
@@ -133,48 +198,22 @@
                 <p>Cybersécurité</p>
             </div>
             <div class="passion">
-                <img src="db.jpg" alt="Escalade">
+                <img src="db.jpg" alt="Boxe Thaïlandaise">
                 <p>Boxe Thaïlandaise</p>
             </div>
             <div class="passion">
-                <img src="OIP.jpg" alt="Photographie">
+                <img src="OIP.jpg" alt="Volley-Ball">
                 <p>Volley-Ball</p>
             </div>
         </div>
     </section>
 
-    <!-- Contacts -->
     <section class="contact">
         <h2>Contact</h2>
         <p>📧 Email : <a href="mailto:ahmed.ashry0402@gmail.com">ahmed.ashry0402@gmail.com</a></p>
         <p>💼 LinkedIn : <a href="https://linkedin.com/" target="_blank">linkedin.com</a></p>
     </section>
 </main>
-
-<script>
-function openTab(evt, tabName) {
-    const tabcontent = document.getElementsByClassName("tabcontent");
-    for (let i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    const tablinks = document.getElementsByClassName("tablink");
-    for (let i = 0; i < tablinks.length; i++) {
-        tablinks[i].classList.remove("active");
-    }
-
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.classList.add("active");
-}
-
-function openModal(id) {
-    document.getElementById(id).style.display = "flex";
-}
-
-function closeModal(id) {
-    document.getElementById(id).style.display = "none";
-}
-</script>
 
 </body>
 </html>
