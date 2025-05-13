@@ -115,19 +115,23 @@ header {
     border-radius: 15px;
     width: 90%;
     max-width: 500px;
+    max-height: 90vh; /* ✅ Limite la hauteur */
+    overflow-y: auto;  /* ✅ Ajoute un scroll interne si contenu trop grand */
     position: relative;
     text-align: center;
     animation: fadeIn 0.3s ease;
+    box-sizing: border-box;
 }
 
-/* ✅ Bloc à AJOUTER pour rendre l'image responsive */
+
 .modal-content img {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 20px auto;
-    border-radius: 10px; /* Optionnel */
+    border-radius: 10px;
 }
+
 
 
 .close {
