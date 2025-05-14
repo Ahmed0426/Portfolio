@@ -113,6 +113,48 @@
                 });
             });
         });
+    
+    function ouvrirPopup(titre, duree, description, competences, imageSrc) {
+        document.getElementById("popupTitre").textContent = titre;
+        document.getElementById("popupDuree").textContent = duree;
+        document.getElementById("popupDescription").textContent = description;
+        document.getElementById("popupCompetences").textContent = competences;
+        document.getElementById("popupImage").src = imageSrc;
+        document.getElementById("popupProjet").style.display = "flex";
+    }
+
+    function fermerPopup() {
+        document.getElementById("popupProjet").style.display = "none";
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".bar").forEach(bar => {
+            const level = bar.getAttribute("data-level");
+            bar.querySelector('::before')?.style.setProperty('width', level); // sécurité
+            setTimeout(() => {
+                bar.style.setProperty('--fill', level);
+                bar.querySelector('::before')?.style.setProperty('width', level);
+                bar.style.setProperty('--width', level);
+                bar.style.setProperty('position', 'relative');
+                bar.style.setProperty('overflow', 'hidden');
+                bar.querySelector('::before')?.style.setProperty('transition', 'width 1s ease-in-out');
+            }, 100);
+            bar.style.setProperty('--level', level);
+            bar.style.setProperty('--percent', level);
+            bar.style.setProperty('width', level);
+        });
+
+        // Alternative simple
+        document.querySelectorAll('.bar').forEach(bar => {
+            const level = bar.getAttribute('data-level');
+            bar.style.setProperty('--percent', level);
+            bar.style.setProperty('--level', level);
+            bar.querySelector('::before');
+            bar.style.background = `linear-gradient(to right, #4CAF50 ${level}, #ddd ${level})`;
+        });
+    });
+
+
     </script>
 </head>
 <body>
@@ -148,65 +190,210 @@
         <a>Projets</a>
         <div class="dropdown-content">
             <a href="#projets">Projets scolaires</a>
-            <a href="#projets">Projets personnels</a>
+            <a href="#projets-personnels">Projets personnels</a>
         </div>
     </div>
 </nav>
 
 <main>
-    <section id="softskills" class="hidden-section">
-        <h2>Compétences sociales</h2>
-        <div class="skill-bar">Travail en équipe<div class="bar level-9"></div></div>
-        <div class="skill-bar">Communication<div class="bar level-8"></div></div>
-        <div class="skill-bar">Esprit critique<div class="bar level-7"></div></div>
-    </section>
+    <section id="parcours" class="hidden-section">
+    <h2>Mon Parcours</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-date">2024 - 2025</div>
+            <div class="timeline-content">
+                <h3>BUT Informatique – IUT d’Orsay</h3>
+                <p>1ère année en développement, algorithmique, réseau, base de données et cybersécurité.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-content">
+                <h3>Bac Général – Spécialités Maths, Physique-Chimie</h3>
+                <p>Mention Bien</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2021</div>
+            <div class="timeline-content">
+                <h3>Stage d’observation – Advens (Cybersécurité)</h3>
+                <p>Découverte du métier d’analyste cybersécurité et du fonctionnement d’un SOC.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section id="hardskills" class="hidden-section">
-        <h2>Compétences pratiques</h2>
-        <div class="skill-bar">C++, Python, HTML/CSS<div class="bar level-9"></div></div>
-        <div class="skill-bar">SQL, Git, Linux<div class="bar level-8"></div></div>
-        <div class="skill-bar">Cybersécurité, Réseaux<div class="bar level-7"></div></div>
-    </section>
+   <section id="softskills" class="hidden-section">
+    <h2>Compétences sociales</h2>
+    <div class="skill-bar">
+        <div class="skill-label">Ponctualité</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
+        <div class="percentage">85%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Communication</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 80%;"></div></div>
+        <div class="percentage">80%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Travail en équipe</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 75%;"></div></div>
+        <div class="percentage">75%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Esprit critique</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 70%;"></div></div>
+        <div class="percentage">70%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Adaptabilité</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 80%;"></div></div>
+        <div class="percentage">80%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Gestion du temps</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
+        <div class="percentage">85%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Autonomie</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 75%;"></div></div>
+        <div class="percentage">75%</div>
+    </div>
+</section>
+
+<section id="hardskills" class="hidden-section">
+    <h2>Compétences pratiques</h2>
+    <div class="skill-bar">
+        <div class="skill-label">C++</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 80%;"></div></div>
+        <div class="percentage">80%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Java</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 70%;"></div></div>
+        <div class="percentage">70%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Python</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 90%;"></div></div>
+        <div class="percentage">90%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">HTML/CSS</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
+        <div class="percentage">85%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Git</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 60%;"></div></div>
+        <div class="percentage">60%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">C#</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 80%;"></div></div>
+        <div class="percentage">80%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">SQL</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 70%;"></div></div>
+        <div class="percentage">70%</div>
+    </div>
+    <div class="skill-bar">
+        <div class="skill-label">Linux</div>
+        <div class="bar-container"><div class="bar-fill" style="width: 87%;"></div></div>
+        <div class="percentage">87%</div>
+    </div>
+</section>
+
+
+
 
     <section id="projets" class="hidden-section">
-        <h2>Projets</h2>
-        <div class="projets-grid">
-            <div class="projet">
-                <img src="jeu.JPG" alt="Jeu 2D SDL">
-                <p>Jeu 2D SDL</p>
-            </div>
-            <div class="projet">
-                <img src="site.JPG" alt="Site Web">
-                <p>Site Web Fictif</p>
-            </div>
-            <div class="projet">
-                <img src="MCD.JPG" alt="Base de données">
-                <p>Création d'une base de données</p>
-            </div>
-            <div class="projet">
-                <img src="diagrammepieuvre.JPG" alt="Recueil">
-                <p>Recueil de besoins</p>
-            </div>
+    <h2>Projets</h2>
+    <div class="projets-grid">
+        <div class="projet" onclick="ouvrirPopup('Jeu 2D SDL', '3 semaines', 'Jeu développé en C++ avec la bibliothèque SDL2 pour découvrir la programmation graphique.', 'C++, SDL, Algorithmique', 'jeu.JPG')">
+            <img src="jeu.JPG" alt="Jeu 2D SDL">
+            <p>Jeu 2D SDL</p>
         </div>
-    </section>
+        <div class="projet" onclick="ouvrirPopup('Site Web Fictif', '2 semaines', 'Site vitrine codé en HTML/CSS pour apprendre les bases du développement web.', 'HTML, CSS, UX', 'site.JPG')">
+            <img src="site.JPG" alt="Site Web Fictif">
+            <p>Site Web Fictif</p>
+        </div>
+        <div class="projet" onclick="ouvrirPopup('Base de données', '1 semaine', 'Modélisation et création d’une base de données relationnelle.', 'SQL, MCD, UML', 'MCD.JPG')">
+            <img src="MCD.JPG" alt="Base de données">
+            <p>Création d'une base de données</p>
+        </div>
+        <div class="projet" onclick="ouvrirPopup('Recueil de besoins', '1 semaine', 'Diagramme pieuvre pour analyser les besoins fonctionnels.', 'Analyse, Modélisation, Gestion de projet', 'diagrammepieuvre.JPG')">
+            <img src="diagrammepieuvre.JPG" alt="Recueil">
+            <p>Recueil de besoins</p>
+        </div>
+    </div>
+</section>
+
+<!-- Popup -->
+<div id="popupProjet" class="popup hidden-section">
+    <div class="popup-content">
+        <span class="close" onclick="fermerPopup()">&times;</span>
+        <img id="popupImage" src="" alt="Image projet">
+        <h3 id="popupTitre"></h3>
+        <p><strong>Durée :</strong> <span id="popupDuree"></span></p>
+        <p><strong>Description :</strong> <span id="popupDescription"></span></p>
+        <p><strong>Compétences mobilisées :</strong> <span id="popupCompetences"></span></p>
+    </div>
+</div>
 
     <section id="passions" class="hidden-section">
-        <h2>Mes passions</h2>
-        <div class="passions-grid">
-            <div class="passion">
-                <img src="R.jpg" alt="Cybersécurité">
-                <p>Cybersécurité</p>
-            </div>
-            <div class="passion">
-                <img src="db.jpg" alt="Boxe Thaïlandaise">
-                <p>Boxe Thaïlandaise</p>
-            </div>
-            <div class="passion">
-                <img src="OIP.jpg" alt="Volley-Ball">
-                <p>Volley-Ball</p>
-            </div>
+    <h2>Mes passions</h2>
+    <div class="passions-grid">
+        <div class="passion">
+            <img src="R.jpg" alt="Cybersécurité">
+            <p>Cybersécurité</p>
         </div>
-    </section>
+        <div class="passion">
+            <img src="db.jpg" alt="Boxe Thaïlandaise">
+            <p>Boxe Thaïlandaise</p>
+        </div>
+        <div class="passion">
+            <img src="OIP.jpg" alt="Volley-Ball">
+            <p>Volley-Ball</p>
+        </div>
+    </div>
+</section>
+
+    <section id="activites" class="hidden-section">
+    <h2>Mes Activités</h2>
+    <div class="passions-grid">
+        <div class="passion">
+            <img src="cours.jpg" alt="Cours particulier">
+            <p>Cours particulier</p>
+        </div>
+        <div class="passion">
+            <img src="cuisine.jpg" alt="Cuisine">
+            <p>Cuisiner</p>
+        </div>
+        <div class="passion">
+            <img src="avion.jpg" alt="Voyager">
+            <p>Voyager</p>
+        </div>
+        <div class="passion">
+            <img src="amis.jpg" alt="Sortir avec des amis">
+            <p>Sortir avec des amis</p>
+        </div>
+    </div>
+</section>
+
+<section id="projets-personnels" class="hidden-section">
+    <h2>Projets personnels</h2>
+    <div class="projets-grid">
+        <div class="projet">
+            <img src="SiteVolley.png" alt="Site Web Club de Volley" id="site-volley">
+            <p>Site Web de mon club de volley</p>
+        </div>
+        <!-- Ajoute tes autres projets ici -->
+    </div>
+</section>
+
 
     <section class="contact">
         <h2>Contact</h2>
