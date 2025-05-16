@@ -65,32 +65,6 @@
             display: none;
         }
 
-        .skill-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 8px 0;
-        }
-
-        .bar {
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 5px;
-            flex-grow: 1;
-            margin-left: 10px;
-            position: relative;
-        }
-
-        .bar::after {
-            content: '';
-            position: absolute;
-            height: 100%;
-            background-color: #4CAF50;
-            border-radius: 5px;
-            left: 0;
-            top: 0;
-        }
-
         .level-10::after { width: 100%; }
         .level-9::after { width: 90%; }
         .level-8::after { width: 80%; }
@@ -161,7 +135,7 @@
 
 <header>
     <div class="presentation">
-        <img src="images/ma-photo.jpg" alt="Ma photo" class="photo-profil">
+        <img src="photo.jpg" alt="Ma photo" class="photo-profil">
         <div class="texte-presentation">
             <h1>Bonjour, je suis Ahmed</h1>
             <p>Étudiant en 1ère année de BUT Informatique
@@ -169,11 +143,12 @@
         </div>
     </div>
 </header>
-
+    
 <nav class="menu-bar">
     <div class="dropdown">
         <a>Qui suis-je ?</a>
         <div class="dropdown-content">
+            <a href="#presentation2">Présentation</a>
             <a href="#parcours">Mon parcours</a>
             <a href="#passions">Mes passions</a>
             <a href="#activites">Mes activités</a>
@@ -196,6 +171,20 @@
 </nav>
 
 <main>
+    <section id="presentation2" class="hidden-section">
+    <h2>Présentation</h2>
+    <div style="background-color: #e0f0ff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+        <p>
+            Bonjour et bienvenue sur mon portfolio ! Je m'appelle <strong>Ahmed</strong>, j'ai 19 ans et je suis actuellement étudiant en première année de <strong>BUT Informatique</strong> à l'IUT d'Orsay.
+        </p>
+        <p>
+            Passionné par l'informatique depuis mon plus jeune âge, j'ai toujours été attiré par les nouvelles technologies, le développement logiciel, et tout ce qui touche à la cybersécurité. Curieux de nature, j'aime découvrir, apprendre rapidement et m'investir pleinement dans ce que je fais.
+        </p>
+        <p>
+            Ce portfolio regroupe une sélection de mes projets académiques et personnels. Il reflète mon parcours, mes compétences, ainsi que mon envie constante de progresser dans le domaine du numérique.
+        </p>
+    </div>
+</section>
     <section id="parcours" class="hidden-section">
     <h2>Mon Parcours</h2>
     <div class="timeline">
