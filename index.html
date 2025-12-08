@@ -88,12 +88,13 @@
             });
         });
     
-    function ouvrirPopup(titre, duree, description, competences, imageSrc) {
+    function ouvrirPopup(titre, duree, description, competences, imageSrc,projetdownload) {
         document.getElementById("popupTitre").textContent = titre;
         document.getElementById("popupDuree").textContent = duree;
         document.getElementById("popupDescription").textContent = description;
         document.getElementById("popupCompetences").textContent = competences;
         document.getElementById("popupImage").src = imageSrc;
+        document.getElementById("popupCompetences").src = projetdownload;
         document.getElementById("popupProjet").style.display = "flex";
     }
 
@@ -301,24 +302,21 @@
     <section id="projets" class="hidden-section">
     <h2>Projets</h2>
     <div class="projets-grid">
-        <div class="projet" onclick="ouvrirPopup('Jeu 2D SDL', '3 semaines', 'Jeu développé en C++ avec la bibliothèque SDL2 pour découvrir la programmation graphique.', 'C++, SDL, Algorithmique', 'jeu.JPG')">
+        <div class="projet" onclick="ouvrirPopup('Jeu 2D SDL', '3 semaines', 'Jeu développé en C++ avec la bibliothèque SDL2 pour découvrir la programmation graphique.', 'C++, SDL, Algorithmique', 'jeu.JPG','JeuSDL.ZIP')">
             <img src="jeu.JPG" alt="Jeu 2D SDL">
             <p>Jeu 2D SDL</p>
-            <a href="JeuSDL.ZIP" download="JeuSDL.ZIP">Le Jeu 2D</a>
         </div>
         <div class="projet" onclick="ouvrirPopup('Site Web Fictif', '2 semaines', 'Site vitrine codé en HTML/CSS pour apprendre les bases du développement web.', 'HTML, CSS, UX', 'site.JPG')">
             <img src="site.JPG" alt="Site Web Fictif">
             <p>Site Web Fictif</p>
         </div>
-        <div class="projet" onclick="ouvrirPopup('Base de données', '1 semaine', 'Modélisation et création d’une base de données relationnelle.', 'SQL, MCD, UML', 'MCD.JPG')">
+        <div class="projet" onclick="ouvrirPopup('Base de données', '1 semaine', 'Modélisation et création d’une base de données relationnelle.', 'SQL, MCD, UML', 'MCD.JPG','Trainline.ZIP')">
             <img src="MCD.JPG" alt="Base de données">
             <p>Création d'une base de données</p>
-            <a href="Trainline.ZIP" download="Trainline.ZIP">La Base De données associés à l'entreprise TrainLine</a>
         </div>
-        <div class="projet" onclick="ouvrirPopup('Recueil de besoins', '1 semaine', 'Diagramme pieuvre pour analyser les besoins fonctionnels.', 'Analyse, Modélisation, Gestion de projet', 'diagrammepieuvre.JPG')">
+        <div class="projet" onclick="ouvrirPopup('Recueil de besoins', '1 semaine', 'Diagramme pieuvre pour analyser les besoins fonctionnels.', 'Analyse, Modélisation, Gestion de projet', 'diagrammepieuvre.JPG','CAHIER_DES_CHARGES.PDF')">
             <img src="diagrammepieuvre.JPG" alt="Recueil">
             <p>Recueil de besoins</p>
-            <a href="CAHIER_DES_CHARGES.PDF" download="CAHIER_DES_CHARGES.PDF">Le Cahier des charges correspondant</a>
         </div>
         <div class="projet" onclick="ouvrirPopup('Gestion de Promotion', '4 mois', 'Application Java pour gérer une promotion de BUT et former les groupes de TD selon certains critères.', 'Analyse, Développement Web, Gestion de projet,Base de données,Développement algorithmique', 'projets3.JPG')">
             <img src="projets3.JPG" alt="projets3">
