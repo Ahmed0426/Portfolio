@@ -2,8 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon Portfolio</title>
-    <link rel="stylesheet" href="./PORTFOLIOSTYLE.css">
+    <title>Ahmed ASHRY|Portfolio</title>
+    <link rel="stylesheet" href="./PORTFOLIOSTYLE.css"> 
+    <meta name="description" content="Bonjour et bienvenue sur mon portfolio ! Je m'appelle Ahmed, j'ai 19 ans et je suis actuellement étudiant en deuxième année de BUT Informatique à l'IUT d'Orsay. ">
+    <meta name="keywords" content="développeur,informatique,stagiaire,C++,Java,Python,C#,HTML,CSS,IT,Computer,Science,Internship,Stage,Web,Technicien,Support">
+    
     <style>
         :root {
             --noir: #000000;
@@ -72,65 +75,6 @@
         .level-6::after { width: 60%; }
         .level-5::after { width: 50%; }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll(".menu-bar .dropdown-content a").forEach(link => {
-                link.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    const id = this.getAttribute("href").substring(1);
-                    document.querySelectorAll("main section").forEach(section => {
-                        section.classList.add("hidden-section");
-                    });
-                    const sectionToShow = document.getElementById(id);
-                    if (sectionToShow) sectionToShow.classList.remove("hidden-section");
-                    sectionToShow.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-        });
-    
-    function ouvrirPopup(titre, duree, description, competences, imageSrc,projetdownload) {
-        document.getElementById("popupTitre").textContent = titre;
-        document.getElementById("popupDuree").textContent = duree;
-        document.getElementById("popupDescription").textContent = description;
-        document.getElementById("popupCompetences").textContent = competences;
-        document.getElementById("popupImage").src = imageSrc;
-        document.getElementById("popupCompetences").src = projetdownload;
-        document.getElementById("popupProjet").style.display = "flex";
-    }
-
-    function fermerPopup() {
-        document.getElementById("popupProjet").style.display = "none";
-    }
-    
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".bar").forEach(bar => {
-            const level = bar.getAttribute("data-level");
-            bar.querySelector('::before')?.style.setProperty('width', level); // sécurité
-            setTimeout(() => {
-                bar.style.setProperty('--fill', level);
-                bar.querySelector('::before')?.style.setProperty('width', level);
-                bar.style.setProperty('--width', level);
-                bar.style.setProperty('position', 'relative');
-                bar.style.setProperty('overflow', 'hidden');
-                bar.querySelector('::before')?.style.setProperty('transition', 'width 1s ease-in-out');
-            }, 100);
-            bar.style.setProperty('--level', level);
-            bar.style.setProperty('--percent', level);
-            bar.style.setProperty('width', level);
-        });
-
-        // Alternative simple
-        document.querySelectorAll('.bar').forEach(bar => {
-            const level = bar.getAttribute('data-level');
-            bar.style.setProperty('--percent', level);
-            bar.style.setProperty('--level', level);
-            bar.querySelector('::before');
-            bar.style.background = `linear-gradient(to right, #4CAF50 ${level}, #ddd ${level})`;
-        });
-    });
-
-
-    </script>
 </head>
 <body>
 
@@ -384,6 +328,64 @@
         <p>💼 LinkedIn : <a href="https://linkedin.com/" target="_blank">linkedin.com</a></p>
     </section>
 </main>
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".menu-bar .dropdown-content a").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const id = this.getAttribute("href").substring(1);
+                    document.querySelectorAll("main section").forEach(section => {
+                        section.classList.add("hidden-section");
+                    });
+                    const sectionToShow = document.getElementById(id);
+                    if (sectionToShow) sectionToShow.classList.remove("hidden-section");
+                    sectionToShow.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    
+    function ouvrirPopup(titre, duree, description, competences, imageSrc,projetdownload) {
+        document.getElementById("popupTitre").textContent = titre;
+        document.getElementById("popupDuree").textContent = duree;
+        document.getElementById("popupDescription").textContent = description;
+        document.getElementById("popupCompetences").textContent = competences;
+        document.getElementById("popupImage").src = imageSrc;
+        document.getElementById("popupCompetences").src = projetdownload;
+        document.getElementById("popupProjet").style.display = "flex";
+    }
 
+    function fermerPopup() {
+        document.getElementById("popupProjet").style.display = "none";
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".bar").forEach(bar => {
+            const level = bar.getAttribute("data-level");
+            bar.querySelector('::before')?.style.setProperty('width', level); // sécurité
+            setTimeout(() => {
+                bar.style.setProperty('--fill', level);
+                bar.querySelector('::before')?.style.setProperty('width', level);
+                bar.style.setProperty('--width', level);
+                bar.style.setProperty('position', 'relative');
+                bar.style.setProperty('overflow', 'hidden');
+                bar.querySelector('::before')?.style.setProperty('transition', 'width 1s ease-in-out');
+            }, 100);
+            bar.style.setProperty('--level', level);
+            bar.style.setProperty('--percent', level);
+            bar.style.setProperty('width', level);
+        });
+
+        // Alternative simple
+        document.querySelectorAll('.bar').forEach(bar => {
+            const level = bar.getAttribute('data-level');
+            bar.style.setProperty('--percent', level);
+            bar.style.setProperty('--level', level);
+            bar.querySelector('::before');
+            bar.style.background = `linear-gradient(to right, #4CAF50 ${level}, #ddd ${level})`;
+        });
+    });
+
+
+    </script>
 </body>
 </html>
