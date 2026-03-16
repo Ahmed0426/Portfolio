@@ -1,391 +1,386 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Ahmed ASHRY|Portfolio</title>
-    <link rel="stylesheet" href="./PORTFOLIOSTYLE.css"> 
-    <meta name="description" content="Bonjour et bienvenue sur mon portfolio ! Je m'appelle Ahmed, j'ai 19 ans et je suis actuellement étudiant en deuxième année de BUT Informatique à l'IUT d'Orsay. ">
-    <meta name="keywords" content="développeur,informatique,stagiaire,C++,Java,Python,C#,HTML,CSS,IT,Computer,Science,Internship,Stage,Web,Technicien,Support">
-    
-    <style>
-        :root {
-            --noir: #000000;
-            --gris-fonce: #333333;
-            --gris-moyen: #777777;
-            --gris-clair: #cccccc;
-            --blanc: #ffffff;
-            --bleu: #0000ff;}
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .menu-bar {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            background-color: #333;
-            padding: 10px;
-        }
-
-        .menu-bar .dropdown > a {
-            color: white;
-            padding: 14px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .menu-bar .dropdown > a:hover {
-            background-color: #444;
-        }
-
-        .hidden-section {
-            display: none;
-        }
-
-        .level-10::after { width: 100%; }
-        .level-9::after { width: 90%; }
-        .level-8::after { width: 80%; }
-        .level-7::after { width: 70%; }
-        .level-6::after { width: 60%; }
-        .level-5::after { width: 50%; }
-    </style>
+<meta charset="UTF-8">
+<title>Ahmed Ashry — Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio d'Ahmed Ashry, étudiant en BUT Informatique à l'IUT d'Orsay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #fafafa;
+  --white: #ffffff;
+  --black: #0e0e0e;
+  --g100: #f4f4f4;
+  --g200: #e8e8e8;
+  --g300: #d0d0d0;
+  --g400: #a8a8a8;
+  --g500: #787878;
+  --g600: #4a4a4a;
+  --g700: #2e2e2e;
+  --font-d: 'Playfair Display', Georgia, serif;
+  --font-b: 'Epilogue', sans-serif;
+  --max: 900px;
+  --r: 4px;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--black); font-family: var(--font-b); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; height: 58px; background: rgba(250,250,250,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--g200); }
+.nav-name { font-family: var(--font-d); font-size: 1rem; font-weight: 600; color: var(--black); text-decoration: none; }
+.nav-links { display: flex; list-style: none; }
+.nav-links a { color: var(--g500); text-decoration: none; font-size: 0.8rem; font-weight: 400; padding: 0.35rem 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--black); }
+#hero { padding: 140px 3rem 90px; max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: end; border-bottom: 1px solid var(--g200); }
+.eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g400); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.6rem; }
+.eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--g400); }
+h1 { font-family: var(--font-d); font-size: clamp(2.8rem, 6vw, 4.4rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; color: var(--black); margin-bottom: 1.5rem; }
+h1 em { font-style: italic; font-weight: 400; color: var(--g500); }
+.hero-sub { font-size: 1rem; color: var(--g500); max-width: 460px; font-weight: 300; line-height: 1.85; margin-bottom: 2.5rem; }
+.cta { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; font-family: var(--font-b); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.65rem 1.4rem; border-radius: 2px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-dark { background: var(--black); color: var(--white); }
+.btn-dark:hover { background: var(--g700); }
+.btn-out { background: transparent; color: var(--g600); border: 1px solid var(--g300); }
+.btn-out:hover { border-color: var(--black); color: var(--black); }
+.hero-aside { text-align: right; padding-bottom: 0.25rem; }
+.avatar { width: 175px; height: 175px; background: var(--g100); border: 1px solid var(--g200); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: var(--font-d); font-size: 3.2rem; font-weight: 700; color: var(--g300); margin-bottom: 0.75rem; }
+.status { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: var(--g500); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: #3d9970; animation: blink 2.4s infinite; }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:.2} }
+.sec { max-width: var(--max); margin: 0 auto; padding: 80px 3rem; border-bottom: 1px solid var(--g200); }
+.sec-head { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3rem; }
+.sec-num { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g400); white-space: nowrap; }
+h2 { font-family: var(--font-d); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 600; letter-spacing: -0.02em; color: var(--black); line-height: 1.15; }
+.about-grid { display: grid; grid-template-columns: 2fr 1.3fr; gap: 5rem; align-items: start; }
+.about-text p { color: var(--g600); font-weight: 300; font-size: 1rem; line-height: 1.9; margin-bottom: 1.25rem; }
+.about-text p:last-child { margin-bottom: 0; }
+.kv { display: flex; flex-direction: column; gap: 1px; background: var(--g200); border: 1px solid var(--g200); border-radius: var(--r); overflow: hidden; }
+.kv-row { display: grid; grid-template-columns: 95px 1fr; background: var(--white); padding: 0.75rem 1rem; gap: 1rem; }
+.kv-k { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--g400); padding-top: 0.05rem; }
+.kv-v { font-size: 0.875rem; color: var(--g700); font-weight: 400; }
+.lang-block { display: flex; flex-direction: column; gap: 0.2rem; }
+.lang-block span { font-size: 0.875rem; color: var(--g700); }
+.tl { display: flex; flex-direction: column; }
+.tl-row { display: grid; grid-template-columns: 120px 1fr; gap: 2rem; padding: 1.75rem 0; border-bottom: 1px solid var(--g200); }
+.tl-row:first-child { border-top: 1px solid var(--g200); }
+.tl-date { font-size: 0.78rem; font-weight: 500; color: var(--g400); letter-spacing: 0.02em; padding-top: 0.2rem; }
+.tl-c h3 { font-family: var(--font-d); font-size: 1rem; font-weight: 600; color: var(--black); margin-bottom: 0.3rem; }
+.tl-c p { font-size: 0.875rem; color: var(--g500); font-weight: 300; line-height: 1.7; }
+.badge { display: inline-block; background: var(--g100); border: 1px solid var(--g200); border-radius: 2px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.04em; color: var(--g500); padding: 0.2rem 0.55rem; margin-top: 0.5rem; }
+.sk2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.sk-title { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--g400); margin-bottom: 1.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--g200); }
+.sk-row { margin-bottom: 1.1rem; }
+.sk-hd { display: flex; justify-content: space-between; margin-bottom: 0.45rem; }
+.sk-lbl { font-size: 0.875rem; color: var(--g700); font-weight: 400; }
+.sk-pct { font-size: 0.78rem; color: var(--g400); font-variant-numeric: tabular-nums; }
+.sk-track { height: 2px; background: var(--g200); border-radius: 100px; overflow: hidden; }
+.sk-fill { height: 100%; background: var(--black); border-radius: 100px; transform: scaleX(0); transform-origin: left; transition: transform 1s cubic-bezier(.4,0,.2,1); }
+.sk-fill.on { transform: scaleX(1); }
+.pills { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pill { background: var(--g100); border: 1px solid var(--g200); border-radius: 2px; padding: 0.3rem 0.7rem; font-size: 0.78rem; color: var(--g600); letter-spacing: 0.02em; transition: all .15s; cursor: default; }
+.pill:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+.proj-list { display: flex; flex-direction: column; }
+.proj-row { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: start; padding: 2rem 0; border-bottom: 1px solid var(--g200); cursor: pointer; }
+.proj-row:first-child { border-top: 1px solid var(--g200); }
+.proj-row:hover .p-arrow { transform: translate(3px,-3px); }
+.p-num { font-size: 0.72rem; color: var(--g300); font-weight: 500; margin-bottom: 0.4rem; letter-spacing: 0.06em; }
+.p-title { font-family: var(--font-d); font-size: 1.15rem; font-weight: 600; color: var(--black); margin-bottom: 0.5rem; }
+.p-desc { font-size: 0.875rem; color: var(--g500); font-weight: 300; max-width: 540px; line-height: 1.75; margin-bottom: 0.75rem; }
+.p-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.p-tag { background: transparent; border: 1px solid var(--g300); border-radius: 2px; font-size: 0.72rem; color: var(--g400); padding: 0.15rem 0.5rem; }
+.p-meta { text-align: right; padding-top: 0.25rem; }
+.p-dur { font-size: 0.78rem; color: var(--g400); margin-bottom: 0.5rem; white-space: nowrap; }
+.p-arrow { font-size: 1.1rem; color: var(--g300); transition: transform 0.2s; display: block; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.contact-txt { font-size: 1.05rem; color: var(--g500); font-weight: 300; line-height: 1.85; }
+.c-links { display: flex; flex-direction: column; gap: 1px; background: var(--g200); border: 1px solid var(--g200); border-radius: var(--r); overflow: hidden; }
+.c-row { display: flex; align-items: center; justify-content: space-between; background: var(--white); padding: 1rem 1.25rem; text-decoration: none; transition: background .15s; }
+.c-row:hover { background: var(--g100); }
+.c-left { display: flex; align-items: center; gap: 0.75rem; }
+.c-icon { width: 32px; height: 32px; background: var(--g100); border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--g600); }
+.c-lbl { font-size: 0.82rem; font-weight: 500; color: var(--black); }
+.c-sub { font-size: 0.75rem; color: var(--g400); }
+.c-arr { color: var(--g300); font-size: 0.9rem; }
+.overlay { display: none; position: fixed; inset: 0; background: rgba(14,14,14,.5); z-index: 200; align-items: center; justify-content: center; padding: 1.5rem; }
+.overlay.open { display: flex; }
+.pop { background: var(--white); border: 1px solid var(--g200); border-radius: var(--r); max-width: 540px; width: 100%; animation: su .22s ease; overflow: hidden; }
+@keyframes su { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)} }
+.pop-hd { padding: 1.5rem 1.75rem 1.25rem; border-bottom: 1px solid var(--g200); display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
+.pop-title { font-family: var(--font-d); font-size: 1.3rem; font-weight: 600; color: var(--black); }
+.pop-x { width: 30px; height: 30px; background: var(--g100); border: 1px solid var(--g200); border-radius: 2px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.85rem; color: var(--g500); flex-shrink: 0; transition: background .15s; }
+.pop-x:hover { background: var(--g200); }
+.pop-body { padding: 1.5rem 1.75rem; }
+.pop-field { margin-bottom: 1.1rem; }
+.pop-field:last-child { margin-bottom: 0; }
+.pop-lbl { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--g400); margin-bottom: 0.35rem; }
+.pop-val { font-size: 0.9rem; color: var(--g700); font-weight: 300; line-height: 1.7; }
+footer { max-width: var(--max); margin: 0 auto; padding: 2rem 3rem; display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--g400); }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+@media(max-width:720px){
+  nav{padding:0 1.25rem}
+  .nav-links{display:none}
+  #hero,.sec{padding-left:1.25rem;padding-right:1.25rem}
+  #hero{grid-template-columns:1fr;padding-top:100px}
+  .hero-aside{display:none}
+  .about-grid,.sk2,.contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .tl-row{grid-template-columns:1fr;gap:.25rem}
+  .proj-row{grid-template-columns:1fr}
+  .p-meta{display:none}
+  footer{flex-direction:column;gap:.5rem;text-align:center}
+}
+</style>
 </head>
 <body>
 
-<header>
-    <div class="presentation">
-        <img src="photo.JPG" alt="Ma photo" class="photo-profil">
-        <div class="texte-presentation">
-            <h1>Bonjour, je suis Ahmed</h1>
-            <p>Étudiant en 2ème année de BUT Informatique
-            </p>
-        </div>
-    </div>
-</header>
-    
-<nav class="menu-bar">
-    <div class="dropdown">
-        <a>Qui suis-je ?</a>
-        <div class="dropdown-content">
-            <a href="#presentation2">Présentation</a>
-            <a href="#parcours">Mon parcours</a>
-            <a href="#passions">Mes passions</a>
-            <a href="#activites">Mes activités</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a>Compétences</a>
-        <div class="dropdown-content">
-            <a href="#softskills">Compétences sociales</a>
-            <a href="#hardskills">Compétences pratiques</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a>Projets</a>
-        <div class="dropdown-content">
-            <a href="#projets">Projets scolaires</a>
-        </div>
-    </div>
+<nav>
+  <a class="nav-name" href="#hero">Ahmed Ashry</a>
+  <ul class="nav-links">
+    <li><a href="#about">Profil</a></li>
+    <li><a href="#parcours">Parcours</a></li>
+    <li><a href="#skills">Compétences</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<main>
-    <section id="presentation2" class="hidden-section">
-    <h2>Présentation</h2>
-    <div style="background-color: #e0f0ff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-        <p>
-            Bonjour et bienvenue sur mon portfolio ! Je m'appelle <strong>Ahmed</strong>, j'ai 19 ans et je suis actuellement étudiant en deuxième année de <strong>BUT Informatique</strong> à l'IUT d'Orsay.
-        </p>
-        <p>
-            Passionné par l'informatique depuis mon plus jeune âge, j'ai toujours été attiré par les nouvelles technologies, le développement logiciel, et tout ce qui touche à la cybersécurité. Curieux de nature, j'aime découvrir, apprendre rapidement et m'investir pleinement dans ce que je fais.
-        </p>
-        <p>
-            Ce portfolio regroupe une sélection de mes projets académiques et personnels. Il reflète mon parcours, mes compétences, ainsi que mon envie constante de progresser dans le domaine du numérique.
-        </p>
+<div id="hero">
+  <div>
+    <div class="eyebrow">Étudiant en BUT Informatique — IUT d'Orsay</div>
+    <h1>Ahmed<br><em>Ashry</em></h1>
+    <p class="hero-sub">Développement logiciel, cybersécurité, bases de données. En 2ème année à l'IUT d'Orsay, curieux et impliqué dans chaque projet.</p>
+    <div class="cta">
+      <a href="#projects" class="btn btn-dark">Voir les projets</a>
+      <a href="#contact" class="btn btn-out">Me contacter</a>
     </div>
-</section>
-    <section id="parcours" class="hidden-section">
-    <h2>Mon Parcours</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-date">2024 - 2026</div>
-            <div class="timeline-content">
-                <h3>BUT Informatique – IUT d’Orsay</h3>
-                <p>2ème année en développement, algorithmique, réseau, base de données et cybersécurité.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">2024</div>
-            <div class="timeline-content">
-                <h3>Bac Général – Spécialités Maths, Physique-Chimie</h3>
-                <p>Mention Bien</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-date">2021</div>
-            <div class="timeline-content">
-                <h3>Stage d’observation – Advens (Cybersécurité)</h3>
-                <p>Découverte du métier d’analyste cybersécurité et du fonctionnement d’un SOC.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-   <section id="softskills" class="hidden-section">
-    <h2>Compétences sociales</h2>
-    <div class="skill-bar">
-        <div class="skill-label">Ponctualité</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 99%;"></div></div>
-        <div class="percentage">99%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Communication</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 90%;"></div></div>
-        <div class="percentage">90%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Travail en équipe</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
-        <div class="percentage">85%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Esprit critique</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 90%;"></div></div>
-        <div class="percentage">90%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Adaptabilité</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 90%;"></div></div>
-        <div class="percentage">90%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Gestion du temps</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 80%;"></div></div>
-        <div class="percentage">80%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Autonomie</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 95%;"></div></div>
-        <div class="percentage">95%</div>
-    </div>
-</section>
-
-<section id="hardskills" class="hidden-section">
-    <h2>Compétences pratiques</h2>
-    <div class="skill-bar">
-        <div class="skill-label">C++</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 80%;"></div></div>
-        <div class="percentage">80%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Java</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 70%;"></div></div>
-        <div class="percentage">70%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Python</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 90%;"></div></div>
-        <div class="percentage">90%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">HTML/CSS</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 85%;"></div></div>
-        <div class="percentage">85%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Git</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 60%;"></div></div>
-        <div class="percentage">60%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">C#</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 80%;"></div></div>
-        <div class="percentage">80%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">SQL</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 70%;"></div></div>
-        <div class="percentage">70%</div>
-    </div>
-    <div class="skill-bar">
-        <div class="skill-label">Linux</div>
-        <div class="bar-container"><div class="bar-fill" style="width: 87%;"></div></div>
-        <div class="percentage">87%</div>
-    </div>
-</section>
-
-
-
-
-    <section id="projets" class="hidden-section">
-    <h2>Projets</h2>
-    <div class="projets-grid">
-        <div class="projet" onclick="ouvrirPopup('Jeu 2D SDL', '3 semaines', 'Jeu développé en C++ avec la bibliothèque SDL2 pour découvrir la programmation graphique.', 'C++, SDL, Algorithmique', 'jeu.JPG','JeuSDL.ZIP')">
-            <img src="jeu.JPG" alt="Jeu 2D SDL">
-            <p>Jeu 2D SDL</p>
-        </div>
-        <div class="projet" onclick="ouvrirPopup('Site Web Fictif', '2 semaines', 'Site vitrine codé en HTML/CSS pour apprendre les bases du développement web.', 'HTML, CSS, UX', 'site.JPG')">
-            <img src="site.JPG" alt="Site Web Fictif">
-            <p>Site Web Fictif</p>
-        </div>
-        <div class="projet" onclick="ouvrirPopup('Base de données', '1 semaine', 'Modélisation et création d’une base de données relationnelle.', 'SQL, MCD, UML', 'MCD.JPG','Trainline.ZIP')">
-            <img src="MCD.JPG" alt="Base de données">
-            <p>Création d'une base de données</p>
-        </div>
-        <div class="projet" onclick="ouvrirPopup('Recueil de besoins', '1 semaine', 'Diagramme pieuvre pour analyser les besoins fonctionnels.', 'Analyse, Modélisation, Gestion de projet', 'diagrammepieuvre.JPG','CAHIER_DES_CHARGES.PDF')">
-            <img src="diagrammepieuvre.JPG" alt="Recueil">
-            <p>Recueil de besoins</p>
-        </div>
-        <div class="projet" onclick="ouvrirPopup('Gestion de Promotion', '4 mois', 'Application Java pour gérer une promotion de BUT et former les groupes de TD selon certains critères.', 'Analyse, Développement Web, Gestion de projet,Base de données,Développement algorithmique', 'projets3.JPG')">
-            <img src="projets3.JPG" alt="projets3">
-            <p>Projet de Gestion d'une promotion</p>
-        </div>
-    </div>
-</section>
-
-<!-- Popup -->
-<div id="popupProjet" class="popup hidden-section">
-    <div class="popup-content">
-        <span class="close" onclick="fermerPopup()">&times;</span>
-        <img id="popupImage" src="" alt="Image projet">
-        <h3 id="popupTitre"></h3>
-        <p><strong>Durée :</strong> <span id="popupDuree"></span></p>
-        <p><strong>Description :</strong> <span id="popupDescription"></span></p>
-        <p><strong>Compétences mobilisées :</strong> <span id="popupCompetences"></span></p>
-    </div>
+  </div>
+  <div class="hero-aside">
+    <div class="avatar">AA</div>
+    <div class="status"><span class="dot"></span> Disponible pour un stage</div>
+  </div>
 </div>
 
-    <section id="passions" class="hidden-section">
-    <h2>Mes passions</h2>
-    <div class="passions-grid">
-        <div class="passion">
-            <img src="R.jpg" alt="Cybersécurité">
-            <p>Cybersécurité</p>
-        </div>
-        <div class="passion">
-            <img src="db.jpg" alt="Boxe Thaïlandaise">
-            <p>Boxe Thaïlandaise</p>
-        </div>
-        <div class="passion">
-            <img src="OIP.jpg" alt="Volley-Ball">
-            <p>Volley-Ball</p>
-        </div>
+<div class="sec reveal" id="about">
+  <div class="sec-head">
+    <span class="sec-num">01 — Profil</span>
+    <h2>À propos</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Je m'appelle Ahmed, j'ai 19 ans et je suis actuellement en 2ème année de BUT Informatique à l'IUT d'Orsay. Passionné d'informatique depuis mon plus jeune âge, je m'intéresse particulièrement au développement logiciel et à la cybersécurité.</p>
+      <p>Curieux et autonome, j'aime comprendre le fonctionnement des systèmes en profondeur, autant côté code que côté sécurité. En dehors des études, je pratique la boxe thaïlandaise et le volley-ball, je donne des cours particuliers, et j'aime voyager et cuisiner.</p>
     </div>
-</section>
-
-    <section id="activites" class="hidden-section">
-    <h2>Mes Activités</h2>
-    <div class="passions-grid">
-        <div class="passion">
-            <img src="cours.jpg" alt="Cours particulier">
-            <p>Cours particulier</p>
+    <div>
+      <div class="kv">
+        <div class="kv-row">
+          <span class="kv-k">Âge</span>
+          <span class="kv-v">19 ans</span>
         </div>
-        <div class="passion">
-            <img src="cuisine.jpg" alt="Cuisine">
-            <p>Cuisiner</p>
+        <div class="kv-row">
+          <span class="kv-k">Formation</span>
+          <span class="kv-v">BUT Informatique (en cours)</span>
         </div>
-        <div class="passion">
-            <img src="avion.jpg" alt="Voyager">
-            <p>Voyager</p>
+        <div class="kv-row">
+          <span class="kv-k">École</span>
+          <span class="kv-v">IUT d'Orsay — Paris-Saclay</span>
         </div>
-        <div class="passion">
-            <img src="amis.jpg" alt="Sortir avec des amis">
-            <p>Sortir avec des amis</p>
+        <div class="kv-row">
+          <span class="kv-k">Situation</span>
+          <span class="kv-v">Recherche de stage</span>
         </div>
+        <div class="kv-row">
+          <span class="kv-k">Langues</span>
+          <span class="kv-v">
+            <div class="lang-block">
+              <span>🇫🇷 Français — Natif</span>
+              <span>🇸🇦 Arabe — C1</span>
+              <span>🇬🇧 Anglais — B2</span>
+              <span>🇩🇪 Allemand — B1</span>
+            </div>
+          </span>
+        </div>
+      </div>
     </div>
-</section>
+  </div>
+</div>
 
+<div class="sec reveal" id="parcours">
+  <div class="sec-head">
+    <span class="sec-num">02 — Parcours</span>
+    <h2>Formation & expériences</h2>
+  </div>
+  <div class="tl">
+    <div class="tl-row">
+      <div class="tl-date">2024 — aujourd'hui</div>
+      <div class="tl-c">
+        <h3>BUT Informatique — IUT d'Orsay, Paris-Saclay</h3>
+        <p>Développement logiciel, algorithmique, réseaux, bases de données, cybersécurité. Formation en cours, 2ème année.</p>
+        <span class="badge">En cours</span>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-date">2021 — 2024</div>
+      <div class="tl-c">
+        <h3>Baccalauréat Général — Lycée Lakanal, Sceaux</h3>
+        <p>Spécialités Mathématiques & Physique-Chimie.</p>
+        <span class="badge">Mention Bien</span>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-date">2021</div>
+      <div class="tl-c">
+        <h3>Stage d'observation — Advens (Cybersécurité)</h3>
+        <p>Découverte du métier d'analyste cybersécurité et du fonctionnement d'un SOC.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="sec reveal" id="skills">
+  <div class="sec-head">
+    <span class="sec-num">03 — Compétences</span>
+    <h2>Savoir-faire</h2>
+  </div>
+  <div class="sk2">
+    <div>
+      <div class="sk-title">Langages & développement</div>
+      <div id="hard-list"></div>
+      <div class="pills" id="tech-pills"></div>
+    </div>
+    <div>
+      <div class="sk-title">Compétences transversales</div>
+      <div id="soft-list"></div>
+    </div>
+  </div>
+</div>
 
-    <section class="contact">
-        <h2>Contact</h2>
-        <p>📧 Email : <a href="mailto:ahmed.ashry-ahmed@universite-paris-saclay.fr">ahmed.ashry-ahmed@universite-paris-saclay.fr</a></p>
-        <p>💼 LinkedIn : <a href="https://linkedin.com/" target="_blank">linkedin.com</a></p>
-    </section>
-</main>
+<div class="sec reveal" id="projects">
+  <div class="sec-head">
+    <span class="sec-num">04 — Projets</span>
+    <h2>Réalisations scolaires</h2>
+  </div>
+  <div class="proj-list" id="proj-list"></div>
+</div>
+
+<div class="sec reveal" id="contact" style="border-bottom:none;">
+  <div class="sec-head">
+    <span class="sec-num">05 — Contact</span>
+    <h2>Me contacter</h2>
+  </div>
+  <div class="contact-grid">
+    <p class="contact-txt">Actuellement à la recherche d'un stage ou d'une alternance. N'hésitez pas à me contacter par email ou via LinkedIn.</p>
+    <div class="c-links">
+      <a href="mailto:ahmed.ashry-ahmed@universite-paris-saclay.fr" class="c-row">
+        <div class="c-left">
+          <div class="c-icon">✉</div>
+          <div>
+            <div class="c-lbl">Email</div>
+            <div class="c-sub">ahmed.ashry-ahmed@universite-paris-saclay.fr</div>
+          </div>
+        </div>
+        <span class="c-arr">↗</span>
+      </a>
+      <a href="https://linkedin.com/" target="_blank" class="c-row">
+        <div class="c-left">
+          <div class="c-icon" style="font-weight:600;font-size:.75rem;">in</div>
+          <div>
+            <div class="c-lbl">LinkedIn</div>
+            <div class="c-sub">Voir le profil</div>
+          </div>
+        </div>
+        <span class="c-arr">↗</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="pop">
+    <div class="pop-hd">
+      <div class="pop-title" id="p-title"></div>
+      <div class="pop-x" onclick="closePopup()">✕</div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-field"><div class="pop-lbl">Durée</div><div class="pop-val" id="p-dur"></div></div>
+      <div class="pop-field"><div class="pop-lbl">Description</div><div class="pop-val" id="p-desc"></div></div>
+      <div class="pop-field"><div class="pop-lbl">Compétences mobilisées</div><div class="pop-val" id="p-comp"></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Ahmed Ashry</span>
+  <span>BUT Informatique — IUT d'Orsay</span>
+</footer>
+
 <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll(".menu-bar .dropdown-content a").forEach(link => {
-                link.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    const id = this.getAttribute("href").substring(1);
-                    document.querySelectorAll("main section").forEach(section => {
-                        section.classList.add("hidden-section");
-                    });
-                    const sectionToShow = document.getElementById(id);
-                    if (sectionToShow) sectionToShow.classList.remove("hidden-section");
-                    sectionToShow.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-        });
-    
-    function ouvrirPopup(titre, duree, description, competences, imageSrc,projetdownload) {
-        document.getElementById("popupTitre").textContent = titre;
-        document.getElementById("popupDuree").textContent = duree;
-        document.getElementById("popupDescription").textContent = description;
-        document.getElementById("popupCompetences").textContent = competences;
-        document.getElementById("popupImage").src = imageSrc;
-        document.getElementById("popupCompetences").src = projetdownload;
-        document.getElementById("popupProjet").style.display = "flex";
-    }
+const hard=[
+  {n:'Python',p:90},{n:'HTML / CSS',p:85},{n:'C++ / SDL2',p:80},
+  {n:'C#',p:80},{n:'Java',p:70},{n:'SQL',p:70},{n:'Linux',p:87},{n:'Git',p:60}
+];
+const soft=[
+  {n:'Autonomie',p:95},{n:'Ponctualité',p:99},{n:'Communication',p:90},
+  {n:'Esprit critique',p:90},{n:'Adaptabilité',p:90},
+  {n:'Travail en équipe',p:85},{n:'Gestion du temps',p:80}
+];
+const techs=['Git','Linux','SQL','SDL2','UML / MCD','VS Code','IntelliJ','Bash'];
+const projects=[
+  {t:'Jeu 2D SDL',dur:'3 semaines',desc:"Jeu développé en C++ avec la bibliothèque SDL2 pour découvrir la programmation graphique et la gestion d'événements en temps réel.",tags:['C++','SDL2','Algorithmique']},
+  {t:'Site Web Fictif',dur:'2 semaines',desc:"Site vitrine codé en HTML/CSS pour apprendre les fondamentaux du développement web et les bonnes pratiques UX.",tags:['HTML','CSS','UX/UI']},
+  {t:'Base de données Trainline',dur:'1 semaine',desc:"Modélisation et création d'une base de données relationnelle inspirée du service de réservation ferroviaire Trainline.",tags:['SQL','MCD','UML']},
+  {t:'Recueil de besoins',dur:'1 semaine',desc:"Réalisation d'un diagramme pieuvre pour analyser les besoins fonctionnels et rédiger un cahier des charges structuré.",tags:['Analyse','Gestion de projet','UML']},
+  {t:'Gestion de Promotion',dur:'4 mois',desc:"Application Java pour gérer une promotion de BUT Informatique — constitution des groupes de TD, interface utilisateur et base de données.",tags:['Java','SQL','MVC','Gestion de projet']}
+];
 
-    function fermerPopup() {
-        document.getElementById("popupProjet").style.display = "none";
-    }
-    
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".bar").forEach(bar => {
-            const level = bar.getAttribute("data-level");
-            bar.querySelector('::before')?.style.setProperty('width', level); // sécurité
-            setTimeout(() => {
-                bar.style.setProperty('--fill', level);
-                bar.querySelector('::before')?.style.setProperty('width', level);
-                bar.style.setProperty('--width', level);
-                bar.style.setProperty('position', 'relative');
-                bar.style.setProperty('overflow', 'hidden');
-                bar.querySelector('::before')?.style.setProperty('transition', 'width 1s ease-in-out');
-            }, 100);
-            bar.style.setProperty('--level', level);
-            bar.style.setProperty('--percent', level);
-            bar.style.setProperty('width', level);
-        });
+function bars(arr,id){
+  document.getElementById(id).innerHTML=arr.map(s=>`
+    <div class="sk-row">
+      <div class="sk-hd"><span class="sk-lbl">${s.n}</span><span class="sk-pct">${s.p}%</span></div>
+      <div class="sk-track"><div class="sk-fill" data-p="${s.p/100}" style="width:${s.p}%"></div></div>
+    </div>`).join('');
+}
+bars(hard,'hard-list');
+bars(soft,'soft-list');
+document.getElementById('tech-pills').innerHTML=techs.map(t=>`<span class="pill">${t}</span>`).join('');
+document.getElementById('proj-list').innerHTML=projects.map((p,i)=>`
+  <div class="proj-row" onclick="openPopup(${i})">
+    <div>
+      <div class="p-num">0${i+1}</div>
+      <div class="p-title">${p.t}</div>
+      <div class="p-desc">${p.desc}</div>
+      <div class="p-tags">${p.tags.map(t=>`<span class="p-tag">${t}</span>`).join('')}</div>
+    </div>
+    <div class="p-meta"><div class="p-dur">${p.dur}</div><span class="p-arrow">↗</span></div>
+  </div>`).join('');
 
-        // Alternative simple
-        document.querySelectorAll('.bar').forEach(bar => {
-            const level = bar.getAttribute('data-level');
-            bar.style.setProperty('--percent', level);
-            bar.style.setProperty('--level', level);
-            bar.querySelector('::before');
-            bar.style.background = `linear-gradient(to right, #4CAF50 ${level}, #ddd ${level})`;
-        });
-    });
+function openPopup(i){
+  const p=projects[i];
+  document.getElementById('p-title').textContent=p.t;
+  document.getElementById('p-dur').textContent=p.dur;
+  document.getElementById('p-desc').textContent=p.desc;
+  document.getElementById('p-comp').textContent=p.tags.join(', ');
+  document.getElementById('overlay').classList.add('open');
+}
+function closePopup(){ document.getElementById('overlay').classList.remove('open'); }
+document.getElementById('overlay').addEventListener('click',function(e){ if(e.target===this)closePopup(); });
 
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('in');
+    e.target.querySelectorAll('.sk-fill').forEach(b=>b.classList.add('on'));
+  });
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    </script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',ev=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){ev.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+</script>
 </body>
 </html>
