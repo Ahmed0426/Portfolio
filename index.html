@@ -313,6 +313,55 @@ body {
 .btn-out { background: transparent; color: var(--g600); border: 1px solid var(--g300); }
 .btn-out:hover { border-color: var(--black); color: var(--black); }
 
+/* ── DROPDOWN CV ── */
+.cv-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.cv-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white);
+  border: 1px solid var(--g200);
+  border-radius: 2px;
+  min-width: 130px;
+  z-index: 100;
+  margin-top: 4px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.cv-dropdown:hover .cv-menu {
+  display: block;
+}
+
+.cv-menu a {
+  display: block;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  color: var(--g600);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+
+.cv-menu a:hover {
+  background: var(--g100);
+  color: var(--black);
+}
+
+/* Optionnel : petite flèche pour indiquer le menu */
+.cv-dropdown .btn::after {
+  content: '▾';
+  margin-left: 6px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
 .home-stats {
   display: flex;
   gap: 2.5rem;
@@ -599,7 +648,13 @@ body {
         <div class="home-actions">
           <span class="btn btn-dark" onclick="goTo('projects')" style="cursor:pointer">Voir les projets</span>
           <span class="btn btn-out" onclick="goTo('contact')" style="cursor:pointer">Me contacter</span>
-          <a href="(Français).pdf" class="btn btn-out" style="cursor:pointer" download> Mon CV</a>
+          <div class="cv-dropdown">
+          <button class="btn btn-out" style="cursor:pointer">Mon CV</button>
+        <div class="cv-menu">
+        <a href="(Français).pdf" download>🇫🇷 Français</a>
+          <a href="CV_Ahmed_Ashry_EN.pdf" download>🇬🇧 English</a>
+  </div>
+</div>
         </div>
         <div class="home-stats">
           <div>
